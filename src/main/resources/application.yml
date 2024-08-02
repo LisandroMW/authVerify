@@ -1,0 +1,78 @@
+spring:
+  profiles:
+    active: dev
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: authverify
+  datasource:
+    password: password
+    url: jdbc:postgresql://localhost:5432/authverify
+    username: Lisandro
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+      jdbc:
+        lob:
+          non_contextual_creation: true
+    properties:
+      format_sql: true
+
+    show-sql: true
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+  application:
+    name: authverify
+  datasource:
+    password: password
+    url: jdbc:postgresql://localhost:5432/authverify_qa
+    username: Lisandro
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  application:
+    name: authverify
+  datasource:
+    password: password
+    url: jdbc:postgresql://localhost:5432/authverify_prod
+    username: Lisandro
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
